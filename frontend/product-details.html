@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - SwiftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar (Consistent across pages) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span>⚡ SwiftCart</span>
+      </a>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="orders.html">My Orders</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              🛒 Cart <span class="cart-badge">0</span>
+            </a>
+          </li>
+        </ul>
+        <div id="auth-nav-container" class="auth-nav-container">
+          <a href="login.html" class="nav-link">Login</a>
+          <a href="register.html" class="nav-btn nav-btn-primary">Register</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" id="breadcrumbs-container">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="products.html">Products</a>
+      <span class="separator">/</span>
+      <span class="current">Details</span>
+    </nav>
+
+    <!-- Product Details Dynamic Container -->
+    <div id="product-details-container">
+      <!-- Loading Skeleton State -->
+      <div class="product-detail-layout">
+        <div class="product-detail-image-box skeleton-shimmer" style="height: 440px;"></div>
+        <div class="product-detail-info" style="gap: 1rem;">
+          <div class="skeleton-line skeleton-line-sm skeleton-shimmer" style="width: 25%;"></div>
+          <div class="skeleton-line skeleton-line-title skeleton-shimmer" style="width: 80%; height: 32px;"></div>
+          <div class="skeleton-line skeleton-shimmer" style="width: 35%; height: 28px;"></div>
+          <div class="skeleton-line skeleton-line-desc skeleton-shimmer" style="height: 80px;"></div>
+          <div class="skeleton-line skeleton-line-btn skeleton-shimmer" style="height: 48px; margin-top: 2rem;"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3 style="color: #fff; margin-bottom: 0.5rem; font-size: 1.15rem;">⚡ SwiftCart Store</h3>
+        <p style="font-size: 0.9rem;">Modern e-commerce platform built with pure HTML, CSS, & Vanilla JS.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Catalog</a>
+        <a href="cart.html">Shopping Cart</a>
+        <a href="/api/health" target="_blank">Server Status</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; 2026 SwiftCart. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/product-details.js"></script>
+</body>
+</html>

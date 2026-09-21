@@ -1,0 +1,2 @@
+# Middleware directory
+# Contains Express middleware (e.g. authMiddleware.js, errorHandler.js)

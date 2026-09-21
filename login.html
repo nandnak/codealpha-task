@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login - SwiftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar (Consistent across pages) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span>⚡ SwiftCart</span>
+      </a>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="orders.html">My Orders</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              🛒 Cart <span class="cart-badge">0</span>
+            </a>
+          </li>
+        </ul>
+        <div id="auth-nav-container" class="auth-nav-container">
+          <a href="login.html" class="nav-link active">Login</a>
+          <a href="register.html" class="nav-btn nav-btn-primary">Register</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+    <div class="auth-wrapper">
+      <h2 style="text-align: center; margin-bottom: 1.5rem; font-weight: 800;">Welcome Back</h2>
+      
+      <div id="auth-message" style="display: none;"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1rem;">Sign In</button>
+
+        <div class="form-footer">
+          Don't have an account? <a href="register.html">Create one here</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3 style="color: #fff; margin-bottom: 0.5rem; font-size: 1.15rem;">⚡ SwiftCart Store</h3>
+        <p style="font-size: 0.9rem;">Modern e-commerce platform built with pure HTML, CSS, & Vanilla JS.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Catalog</a>
+        <a href="cart.html">Shopping Cart</a>
+        <a href="/api/health" target="_blank">Server Status</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; 2026 SwiftCart. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+# Models directory
+# Contains Mongoose data schemas (e.g. User.js, Product.js, Order.js)

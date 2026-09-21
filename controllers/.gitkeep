@@ -1,0 +1,2 @@
+# Controllers directory
+# Contains business logic for routes (e.g. authController.js, productController.js, orderController.js)

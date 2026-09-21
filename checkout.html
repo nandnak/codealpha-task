@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - SwiftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar (Consistent across pages) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span>⚡ SwiftCart</span>
+      </a>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="orders.html">My Orders</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              🛒 Cart <span class="cart-badge">0</span>
+            </a>
+          </li>
+        </ul>
+        <div id="auth-nav-container" class="auth-nav-container">
+          <a href="login.html" class="nav-link">Login</a>
+          <a href="register.html" class="nav-btn nav-btn-primary">Register</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <div class="page-header">
+      <h1 style="font-size: 2rem; font-weight: 800;">Order Checkout</h1>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
+      <div style="background: var(--card-bg); padding: 2rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <h3 style="margin-bottom: 1.5rem;">Shipping & Payment Information</h3>
+        <form id="checkout-form">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" class="form-control" placeholder="Jane Doe" required>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Street Address</label>
+            <input type="text" id="address" class="form-control" placeholder="123 Main Street" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control" placeholder="New York" required>
+            </div>
+            <div class="form-group">
+              <label for="zip">Postal / Zip Code</label>
+              <input type="text" id="zip" class="form-control" placeholder="10001" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="paymentMethod">Payment Method</label>
+            <select id="paymentMethod" class="form-control">
+              <option value="cod">Cash on Delivery (Demo)</option>
+              <option value="card">Credit / Debit Card</option>
+              <option value="upi">UPI / Net Banking</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1rem;">Place Order</button>
+        </form>
+      </div>
+
+      <div class="summary-card">
+        <h3 style="margin-bottom: 1.25rem;">Payment Summary</h3>
+        <div class="summary-row">
+          <span>Items Subtotal</span>
+          <span id="checkout-subtotal">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping & Handling</span>
+          <span style="color: var(--success-color);">Free</span>
+        </div>
+        <div class="summary-row total">
+          <span>Final Total</span>
+          <span id="checkout-total">$0.00</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
+          Safe & secure 256-bit SSL encrypted checkout.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3 style="color: #fff; margin-bottom: 0.5rem; font-size: 1.15rem;">⚡ SwiftCart Store</h3>
+        <p style="font-size: 0.9rem;">Modern e-commerce platform built with pure HTML, CSS, & Vanilla JS.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Catalog</a>
+        <a href="cart.html">Shopping Cart</a>
+        <a href="/api/health" target="_blank">Server Status</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; 2026 SwiftCart. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

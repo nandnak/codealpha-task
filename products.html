@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products Catalog - SwiftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar (Consistent across pages) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span>⚡ SwiftCart</span>
+      </a>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="orders.html">My Orders</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              🛒 Cart <span class="cart-badge">0</span>
+            </a>
+          </li>
+        </ul>
+        <div id="auth-nav-container" class="auth-nav-container">
+          <a href="login.html" class="nav-link">Login</a>
+          <a href="register.html" class="nav-btn nav-btn-primary">Register</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    
+    <!-- Page Title & Summary -->
+    <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
+      <div>
+        <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-main);">Product Catalog</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Explore top-rated gear, electronics, and lifestyle essentials.</p>
+      </div>
+      <div id="product-count" style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">
+        Loading catalog...
+      </div>
+    </div>
+
+    <!-- Search, Category Filters & Sorting Controls -->
+    <div class="catalog-controls">
+      <div class="catalog-search-row">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="product-search" class="search-input" placeholder="Search products by title or keyword..." autocomplete="off">
+        </div>
+        <select id="product-sort" class="sort-select">
+          <option value="default">Sort by: Default (Newest)</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Alphabetical (A - Z)</option>
+        </select>
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div class="category-chips" id="category-chips">
+        <button class="filter-chip active" data-category="all">All Items</button>
+        <button class="filter-chip" data-category="Electronics">Electronics</button>
+        <button class="filter-chip" data-category="Accessories">Accessories</button>
+        <button class="filter-chip" data-category="Wearables">Wearables</button>
+        <button class="filter-chip" data-category="Footwear">Footwear</button>
+        <button class="filter-chip" data-category="Lifestyle">Lifestyle</button>
+        <button class="filter-chip" data-category="Home & Kitchen">Home & Kitchen</button>
+      </div>
+    </div>
+
+    <!-- Product Grid Container (Skeleton rendered by default) -->
+    <div class="product-grid" id="products-container">
+      <div class="skeleton-card">
+        <div class="skeleton-image skeleton-shimmer"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line skeleton-line-sm skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-title skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-desc skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-btn skeleton-shimmer"></div>
+        </div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-image skeleton-shimmer"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line skeleton-line-sm skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-title skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-desc skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-btn skeleton-shimmer"></div>
+        </div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-image skeleton-shimmer"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line skeleton-line-sm skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-title skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-desc skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-btn skeleton-shimmer"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3 style="color: #fff; margin-bottom: 0.5rem; font-size: 1.15rem;">⚡ SwiftCart Store</h3>
+        <p style="font-size: 0.9rem;">Modern e-commerce platform built with pure HTML, CSS, & Vanilla JS.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Catalog</a>
+        <a href="cart.html">Shopping Cart</a>
+        <a href="/api/health" target="_blank">API Health Status</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; 2026 SwiftCart. Crafted with clean vanilla web standards.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

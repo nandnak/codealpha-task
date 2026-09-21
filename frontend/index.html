@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwiftCart - Modern E-Commerce Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar (Consistent across pages) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span>⚡ SwiftCart</span>
+      </a>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="orders.html">My Orders</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              🛒 Cart <span class="cart-badge">0</span>
+            </a>
+          </li>
+        </ul>
+        <div id="auth-nav-container" class="auth-nav-container">
+          <a href="login.html" class="nav-link">Login</a>
+          <a href="register.html" class="nav-btn nav-btn-primary">Register</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Next-Gen Gear for Modern Living</h1>
+      <p>Discover premium audio, computer accessories, smart wearables, and everyday lifestyle essentials designed to elevate your routine.</p>
+      <div class="hero-actions">
+        <a href="products.html" class="btn btn-primary" style="background: #fff; color: var(--primary-color); font-weight: 700; padding: 0.8rem 1.75rem;">
+          Shop Catalog
+        </a>
+        <a href="cart.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff; padding: 0.8rem 1.75rem;">
+          View Cart
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Value Props -->
+  <section class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🚚</div>
+        <h3>Lightning Delivery</h3>
+        <p>Free tracked express shipping on all domestic orders above $49.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Authentic Guarantee</h3>
+        <p>100% genuine brand warranty on all electronics and premium gear.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h3>Secure Checkout</h3>
+        <p>Encrypted payment processing supporting cards, UPI, and COD.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Hassle-Free Returns</h3>
+        <p>30-day effortless return policy with instant refund tracking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Catalog Preview Section -->
+  <main class="container" style="margin-bottom: 4rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.75rem; flex-wrap: wrap; gap: 0.5rem;">
+      <div>
+        <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-main);">Featured Products</h2>
+        <p style="color: var(--text-muted);">Hand-picked top trending items from our catalog</p>
+      </div>
+      <a href="products.html" class="btn btn-secondary">Explore All Products &rarr;</a>
+    </div>
+
+    <!-- Product Grid Preview (Reuses products.js logic) -->
+    <div class="product-grid" id="products-container">
+      <div class="skeleton-card">
+        <div class="skeleton-image skeleton-shimmer"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line skeleton-line-sm skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-title skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-desc skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-btn skeleton-shimmer"></div>
+        </div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-image skeleton-shimmer"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line skeleton-line-sm skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-title skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-desc skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-btn skeleton-shimmer"></div>
+        </div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-image skeleton-shimmer"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line skeleton-line-sm skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-title skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-desc skeleton-shimmer"></div>
+          <div class="skeleton-line skeleton-line-btn skeleton-shimmer"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3 style="color: #fff; margin-bottom: 0.5rem; font-size: 1.15rem;">⚡ SwiftCart Store</h3>
+        <p style="font-size: 0.9rem;">Clean full-stack e-commerce project built with Node.js, Express, MongoDB Atlas, and vanilla frontend.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Catalog</a>
+        <a href="cart.html">Shopping Cart</a>
+        <a href="/api/health" target="_blank">Server Status</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      &copy; 2026 SwiftCart. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout - SwiftCart</title>
+  <title>Secure Checkout - SwiftCart</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Navigation Bar (Consistent across pages) -->
+  <!-- Navigation Bar -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="logo">
@@ -34,69 +34,190 @@
   </header>
 
   <!-- Main Content -->
-  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 4rem;">
     <div class="page-header">
-      <h1 style="font-size: 2rem; font-weight: 800;">Order Checkout</h1>
+      <div>
+        <h1>Order Checkout</h1>
+        <p class="page-subtitle">Complete your shipping and payment details below</p>
+      </div>
+      <a href="cart.html" class="btn btn-outline btn-sm">&larr; Back to Cart</a>
     </div>
 
-    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
-      <div style="background: var(--card-bg); padding: 2rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
-        <h3 style="margin-bottom: 1.5rem;">Shipping & Payment Information</h3>
-        <form id="checkout-form">
-          <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" class="form-control" placeholder="Jane Doe" required>
-          </div>
-
-          <div class="form-group">
-            <label for="address">Street Address</label>
-            <input type="text" id="address" class="form-control" placeholder="123 Main Street" required>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-            <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" id="city" class="form-control" placeholder="New York" required>
+    <form id="checkout-form">
+      <div class="checkout-grid">
+        
+        <!-- Left: Shipping & Payment Cards -->
+        <div>
+          <!-- Shipping Address Card -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <span>📍</span> <span>Shipping Information</span>
             </div>
+
             <div class="form-group">
-              <label for="zip">Postal / Zip Code</label>
-              <input type="text" id="zip" class="form-control" placeholder="10001" required>
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" class="form-control" placeholder="e.g. Jane Doe" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" placeholder="jane@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number (Optional)</label>
+                <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 000-0000">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Street Address</label>
+              <input type="text" id="address" class="form-control" placeholder="123 Innovation Blvd, Apt 4B" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" class="form-control" placeholder="San Francisco" required>
+              </div>
+              <div class="form-group">
+                <label for="zip">Postal / Zip Code</label>
+                <input type="text" id="zip" class="form-control" placeholder="94103" required>
+              </div>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="paymentMethod">Payment Method</label>
-            <select id="paymentMethod" class="form-control">
-              <option value="cod">Cash on Delivery (Demo)</option>
-              <option value="card">Credit / Debit Card</option>
-              <option value="upi">UPI / Net Banking</option>
-            </select>
+          <!-- Payment Method Card -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <span>💳</span> <span>Payment Method</span>
+            </div>
+
+            <div class="payment-options-grid">
+              <label class="payment-option-card selected" id="opt-cod">
+                <input type="radio" name="paymentMethod" value="cod" checked>
+                <div class="payment-option-title">💵 Cash on Delivery</div>
+                <div class="payment-option-desc">Pay upon delivery with cash or mobile UPI.</div>
+              </label>
+
+              <label class="payment-option-card" id="opt-card">
+                <input type="radio" name="paymentMethod" value="card">
+                <div class="payment-option-title">💳 Credit / Debit Card</div>
+                <div class="payment-option-desc">Simulated card payment for instant checkout.</div>
+              </label>
+
+              <label class="payment-option-card" id="opt-upi">
+                <input type="radio" name="paymentMethod" value="upi">
+                <div class="payment-option-title">⚡ UPI / NetBanking</div>
+                <div class="payment-option-desc">Instant digital transfer via VPA handle.</div>
+              </label>
+            </div>
+
+            <!-- Card Simulation Fields -->
+            <div id="card-fields-box" style="display: none; padding: 1rem; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; margin-top: 1rem;">
+              <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" class="form-control" placeholder="4242 •••• •••• 4242" maxlength="19">
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label>Expiry Date</label>
+                  <input type="text" class="form-control" placeholder="MM/YY" maxlength="5">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label>CVV / CVC</label>
+                  <input type="password" class="form-control" placeholder="•••" maxlength="4">
+                </div>
+              </div>
+            </div>
+
+            <!-- UPI Simulation Fields -->
+            <div id="upi-fields-box" style="display: none; padding: 1rem; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; margin-top: 1rem;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label>Virtual Payment Address (UPI ID)</label>
+                <input type="text" class="form-control" placeholder="username@okaxis or name@upi">
+              </div>
+            </div>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1rem;">Place Order</button>
-        </form>
-      </div>
+          <button type="submit" class="btn btn-primary btn-block" id="submit-order-btn" style="padding: 1rem; font-size: 1.1rem; box-shadow: var(--shadow-md);">
+            🔒 Place Order &amp; Confirm
+          </button>
+        </div>
 
-      <div class="summary-card">
-        <h3 style="margin-bottom: 1.25rem;">Payment Summary</h3>
-        <div class="summary-row">
-          <span>Items Subtotal</span>
-          <span id="checkout-subtotal">$0.00</span>
-        </div>
-        <div class="summary-row">
-          <span>Shipping & Handling</span>
-          <span style="color: var(--success-color);">Free</span>
-        </div>
-        <div class="summary-row total">
-          <span>Final Total</span>
-          <span id="checkout-total">$0.00</span>
-        </div>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
-          Safe & secure 256-bit SSL encrypted checkout.
-        </p>
+        <!-- Right: Sticky Order Summary Preview -->
+        <aside class="summary-card">
+          <h3>
+            <span>Items in Order</span>
+            <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted);" id="checkout-item-count">0 items</span>
+          </h3>
+
+          <div class="mini-order-items" id="checkout-mini-items">
+            <!-- Rendered by js/checkout.js -->
+          </div>
+
+          <div class="summary-row" style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+            <span>Items Subtotal</span>
+            <span id="checkout-subtotal" style="font-weight: 600;">$0.00</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span class="summary-badge-free">FREE</span>
+          </div>
+
+          <div class="summary-row total">
+            <span>Final Total</span>
+            <span id="checkout-total" style="color: var(--primary-color);">$0.00</span>
+          </div>
+
+          <ul class="trust-badges-list">
+            <li><span>🔒</span> End-to-End SSL Encrypted Processing</li>
+            <li><span>📦</span> Express Tracked Doorstep Delivery</li>
+            <li><span>🛡️</span> Verified Authentic Products</li>
+          </ul>
+        </aside>
+
       </div>
-    </div>
+    </form>
   </main>
+
+  <!-- Modern Order Confirmation Modal -->
+  <div class="modal-backdrop" id="order-success-modal">
+    <div class="modal-content">
+      <div class="modal-icon">✓</div>
+      <h2 class="modal-title">Order Placed Successfully!</h2>
+      <p class="modal-desc">Thank you for shopping with SwiftCart. Your order has been registered in the database.</p>
+
+      <div class="modal-receipt-box">
+        <div class="modal-receipt-row">
+          <span>Order Number:</span>
+          <strong id="modal-order-number">ORD-000000</strong>
+        </div>
+        <div class="modal-receipt-row">
+          <span>Recipient:</span>
+          <span id="modal-recipient-name">Jane Doe</span>
+        </div>
+        <div class="modal-receipt-row">
+          <span>Total Paid:</span>
+          <span id="modal-total-amount" style="color: var(--success-color); font-weight: 700;">$0.00</span>
+        </div>
+        <div class="modal-receipt-row">
+          <span>Payment Method:</span>
+          <span id="modal-payment-method">Cash on Delivery</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; flex-direction: column;">
+        <a href="orders.html" class="btn btn-primary btn-block">
+          View in Order History &rarr;
+        </a>
+        <a href="products.html" class="btn btn-secondary btn-block">
+          Continue Shopping
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Container -->
   <div id="toast-container" class="toast-container"></div>

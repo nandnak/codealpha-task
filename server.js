@@ -33,6 +33,8 @@ app.get('/api/health', (req, res) => {
 
 // 5. API Routes
 app.use('/api/products', require('./routes/productRoutes'));
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/orders', require('./routes/orderRoutes'));
 
 // Fallback route for frontend HTML (serves index.html on root)
 app.get('/', (req, res) => {

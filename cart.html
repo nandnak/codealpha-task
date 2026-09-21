@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Navigation Bar (Consistent across pages) -->
+  <!-- Navigation Bar -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="logo">
@@ -34,45 +34,79 @@
   </header>
 
   <!-- Main Content -->
-  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 4rem;">
     <div class="page-header">
-      <h1 style="font-size: 2rem; font-weight: 800;">Your Shopping Cart</h1>
+      <div>
+        <h1>Your Shopping Cart</h1>
+        <p class="page-subtitle" id="cart-item-count-subtitle">Review items in your cart and proceed to checkout</p>
+      </div>
+      <a href="products.html" class="btn btn-outline btn-sm">&larr; Continue Shopping</a>
     </div>
 
-    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
+    <div class="cart-layout" id="cart-main-layout">
+      <!-- Left: Items Table Section -->
       <div class="table-wrapper">
         <table class="data-table">
           <thead>
             <tr>
               <th>Product</th>
-              <th>Price</th>
+              <th>Unit Price</th>
               <th>Quantity</th>
               <th>Subtotal</th>
-              <th>Action</th>
+              <th style="text-align: right;">Action</th>
             </tr>
           </thead>
           <tbody id="cart-items-container">
-            <!-- Dynamic items rendered by js/cart.js -->
+            <!-- Dynamic rows rendered by js/cart.js -->
           </tbody>
         </table>
+        <div class="cart-table-footer" id="cart-table-footer" style="display: none;">
+          <button class="btn btn-outline btn-sm" id="clear-cart-btn" style="color: var(--danger-color); border-color: #fecaca;">
+            🗑️ Clear Entire Cart
+          </button>
+          <span style="font-size: 0.88rem; color: var(--text-muted);">
+            Free delivery applied to all domestic orders
+          </span>
+        </div>
       </div>
 
-      <div class="summary-card">
-        <h3 style="margin-bottom: 1.25rem;">Order Summary</h3>
+      <!-- Right: Sticky Order Summary -->
+      <aside class="summary-card">
+        <h3>
+          <span>Order Summary</span>
+          <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted);" id="summary-qty-count">0 items</span>
+        </h3>
+        
         <div class="summary-row">
-          <span>Subtotal</span>
-          <span id="summary-subtotal">$0.00</span>
+          <span>Items Subtotal</span>
+          <span id="summary-subtotal" style="font-weight: 600;">$0.00</span>
         </div>
+
         <div class="summary-row">
-          <span>Estimated Shipping</span>
-          <span style="color: var(--success-color);">Free</span>
+          <span>Tracked Shipping</span>
+          <span class="summary-badge-free">FREE</span>
         </div>
+
+        <div class="summary-row">
+          <span>Estimated Sales Tax</span>
+          <span style="color: var(--text-muted);">$0.00</span>
+        </div>
+
         <div class="summary-row total">
-          <span>Total</span>
-          <span id="summary-total">$0.00</span>
+          <span>Total Amount</span>
+          <span id="summary-total" style="color: var(--primary-color);">$0.00</span>
         </div>
-        <a href="checkout.html" class="btn btn-primary btn-block" style="margin-top: 1.5rem;">Proceed to Checkout</a>
-      </div>
+
+        <a href="checkout.html" class="btn btn-primary btn-block" id="proceed-checkout-btn" style="padding: 0.85rem 1.25rem; font-size: 1rem;">
+          Proceed to Checkout &rarr;
+        </a>
+
+        <ul class="trust-badges-list">
+          <li><span>🔒</span> 256-Bit SSL Encrypted Checkout</li>
+          <li><span>🚚</span> Lightning Fast Free Express Shipping</li>
+          <li><span>🛡️</span> 30-Day Authentic Brand Warranty</li>
+        </ul>
+      </aside>
     </div>
   </main>
 

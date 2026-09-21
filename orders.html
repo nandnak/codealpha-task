@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Navigation Bar (Consistent across pages) -->
+  <!-- Navigation Bar -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="logo">
@@ -34,26 +34,25 @@
   </header>
 
   <!-- Main Content -->
-  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 4rem;">
     <div class="page-header">
-      <h1 style="font-size: 2rem; font-weight: 800;">Your Order History</h1>
+      <div>
+        <h1>Your Order History</h1>
+        <p class="page-subtitle" id="orders-subtitle">Track and review all previous purchases stored in the database</p>
+      </div>
+      <a href="products.html" class="btn btn-primary btn-sm">Shop More Products &rarr;</a>
     </div>
 
-    <div class="table-wrapper">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Date</th>
-            <th>Items</th>
-            <th>Total Amount</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="orders-container">
-          <!-- Populated dynamically by js/orders.js -->
-        </tbody>
-      </table>
+    <!-- Orders Dynamic Container -->
+    <div class="orders-list" id="orders-container">
+      <!-- Loading Skeleton State -->
+      <div class="skeleton-card" style="height: 180px; margin-bottom: 1rem;">
+        <div class="skeleton-body">
+          <div class="skeleton-line skeleton-line-title skeleton-shimmer" style="width: 40%;"></div>
+          <div class="skeleton-line skeleton-line-desc skeleton-shimmer" style="width: 70%;"></div>
+          <div class="skeleton-line skeleton-shimmer" style="width: 25%; height: 30px; margin-top: auto;"></div>
+        </div>
+      </div>
     </div>
   </main>
 

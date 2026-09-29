@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile – SocialConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+    if (!localStorage.getItem('token')) {
+      window.location.replace('/login.html');
+    }
+  </script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="/index.html" class="nav-brand">SocialConnect</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="/index.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Home</span>
+        </a>
+        <a href="/index.html#search" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span>Search</span>
+        </a>
+        <a href="/index.html#create" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+          <span>Create</span>
+        </a>
+        <a href="/profile.html" class="nav-link active" id="nav-profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Profile</span>
+        </a>
+        <a href="#" class="nav-link" id="logout-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div id="profile-content">
+      <div class="loading"><div class="spinner"></div><p>Loading profile...</p></div>
+    </div>
+  </main>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal-overlay" id="edit-profile-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <button class="modal-close" type="button" onclick="closeModal('edit-profile-modal')">&times;</button>
+      </div>
+      <form id="edit-profile-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="edit-username">Username</label>
+            <input type="text" id="edit-username" required minlength="3" maxlength="30">
+          </div>
+          <div class="form-group">
+            <label for="edit-bio">Bio</label>
+            <textarea id="edit-bio" maxlength="300" placeholder="Tell us about yourself"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="edit-picture">Profile Picture URL</label>
+            <input type="url" id="edit-picture" placeholder="https://...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" onclick="closeModal('edit-profile-modal')">Cancel</button>
+          <button class="btn btn-primary" type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Post Modal -->
+  <div class="modal-overlay" id="edit-post-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Edit Post</h3>
+        <button class="modal-close" type="button" onclick="closeModal('edit-post-modal')">&times;</button>
+      </div>
+      <form id="edit-post-form">
+        <div class="modal-body">
+          <input type="hidden" id="edit-post-id">
+          <div class="form-group">
+            <label for="edit-post-content">Content</label>
+            <textarea id="edit-post-content" maxlength="2000" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="edit-post-image">Image URL</label>
+            <input type="url" id="edit-post-image" placeholder="https://...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" onclick="closeModal('edit-post-modal')">Cancel</button>
+          <button class="btn btn-primary" type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Followers / Following List Modal -->
+  <div class="modal-overlay" id="user-list-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="user-list-title">Followers</h3>
+        <button class="modal-close" type="button" onclick="closeModal('user-list-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="user-list-body"></div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/post.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

@@ -16,7 +16,7 @@ A simple full-stack e-commerce web application built using:
 Clone the repository
 
 ```bash
-git clone https://github.com/nandhuATgit/codealpha_tasks.git
+git clone https://github.com/nandnak/codealpha_task.git
 Install dependencies
 npm install
 

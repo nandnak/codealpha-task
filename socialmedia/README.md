@@ -11,7 +11,7 @@ MongoDB Atlas
 How to Run
 Clone the repository
 
-git clone https://github.com/nandnak/codealpha_tasks.git
+git clone https://github.com/nandnak/codealpha-task.git
 Install dependencies
 npm install
 

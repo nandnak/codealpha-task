@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Nexora Project Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+  <aside class="auth-hero">
+    <div class="auth-hero-header">
+      <a class="brand" href="/">
+        <span class="brand-mark">N</span> Nexora
+      </a>
+    </div>
+
+    <div class="auth-hero-body">
+      <h1>Work together in absolute sync.</h1>
+      <p>
+        Create workspaces, invite team members, assign task responsibilities, and monitor progress across intuitive boards.
+      </p>
+
+      <div class="auth-features-list">
+        <div class="auth-feature-item">
+          <div class="auth-feature-icon">✦</div>
+          <span>Group projects with customizable task stages</span>
+        </div>
+        <div class="auth-feature-item">
+          <div class="auth-feature-icon">✦</div>
+          <span>Interactive comments and @username mentions</span>
+        </div>
+        <div class="auth-feature-item">
+          <div class="auth-feature-icon">✦</div>
+          <span>Real-time WebSocket synchronization</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-hero-footer">
+      &copy; 2026 Nexora. Designed for productive teams.
+    </div>
+  </aside>
+
+  <main class="auth-panel">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Create an account</h2>
+        <p>Get started with Nexora in seconds</p>
+      </div>
+
+      <div class="alert" id="errorAlert" role="alert"></div>
+
+      <form class="form" id="registerForm">
+        <div class="field">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Alex Morgan" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="username">Username *</label>
+          <input type="text" id="username" name="username" placeholder="e.g. alexm" required pattern="^[a-zA-Z0-9_]+$" title="Only letters, numbers, and underscores" autocomplete="username">
+          <div class="field-hint">Letters, numbers, and underscores only</div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="alex@example.com" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="password">Password *</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required minlength="6" autocomplete="new-password">
+          <div class="field-hint">Minimum 6 characters</div>
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm Password *</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required minlength="6" autocomplete="new-password">
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" id="submitBtn">Create Account</button>
+      </form>
+
+      <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border); text-align:center; font-size:14px;">
+        <span class="muted">Already have an account?</span>
+        <a href="/login.html" class="link">Sign in</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/register.js"></script>
+</body>
+</html>

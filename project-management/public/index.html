@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora | Modern Collaborative Project Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .landing-nav {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .landing-hero {
+      max-width: 1100px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .landing-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 24px;
+      border: 1px solid rgba(79, 70, 229, 0.2);
+    }
+    .landing-title {
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin: 0 0 24px;
+      color: #0f172a;
+    }
+    .landing-title span {
+      background: linear-gradient(135deg, var(--primary) 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .landing-subtitle {
+      font-size: 19px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .landing-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    .landing-mockup {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 80px;
+      text-align: left;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1240px;
+      margin: 0 auto 100px;
+      padding: 0 20px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .feature-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 860px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="landing-nav">
+    <a class="brand" href="/">
+      <span class="brand-mark">N</span> Nexora
+    </a>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <a href="/login.html" class="btn btn-ghost" id="navLoginBtn">Sign In</a>
+      <a href="/register.html" class="btn btn-primary" id="navRegisterBtn">Get Started Free</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="landing-hero">
+      <div class="landing-pill">
+        <span class="pulse-dot"></span> Next-Gen Real-Time Collaboration
+      </div>
+      <h1 class="landing-title">
+        Collaborate, track, and deliver projects <span>faster together</span>
+      </h1>
+      <p class="landing-subtitle">
+        A fast, collaborative project management tool inspired by Trello and Asana. Organize group projects, assign tasks, communicate in real time, and visualize workflows on interactive Kanban boards.
+      </p>
+
+      <div class="landing-cta-group">
+        <a href="/register.html" class="btn btn-primary btn-lg">
+          Start Managing Projects &rarr;
+        </a>
+        <a href="/login.html" class="btn btn-secondary btn-lg">
+          Log In to Workspace
+        </a>
+      </div>
+
+      <!-- Interactive Preview Board -->
+      <div class="landing-mockup">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; border-bottom:1px solid var(--border); padding-bottom:14px;">
+          <div>
+            <strong style="font-size:16px;">Product Launch Q4</strong>
+            <span class="muted" style="font-size:13px; margin-left:10px;">Collaborative Kanban Board</span>
+          </div>
+          <span class="sidebar-live-tag"><span class="pulse-dot"></span> WebSockets Active</span>
+        </div>
+        <div class="kanban" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="column" style="min-height:220px;">
+            <div class="column-header">
+              <span class="column-header-title"><span class="column-dot" style="background:#64748b;"></span> To Do <span class="column-count">2</span></span>
+            </div>
+            <div class="task-card" style="box-shadow:none;">
+              <span class="badge pr-high"><span class="badge-dot"></span> HIGH</span>
+              <h3 style="font-size:13px;">User Research Interviews</h3>
+              <div class="task-meta">
+                <span style="font-size:11px;">📅 Oct 15</span>
+                <span>💬 3</span>
+              </div>
+            </div>
+            <div class="task-card" style="box-shadow:none;">
+              <span class="badge pr-medium"><span class="badge-dot"></span> MEDIUM</span>
+              <h3 style="font-size:13px;">Design System Specs</h3>
+              <div class="task-meta">
+                <span style="font-size:11px;">📅 Oct 18</span>
+                <span>💬 1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="column" style="min-height:220px;">
+            <div class="column-header">
+              <span class="column-header-title"><span class="column-dot" style="background:#0284c7;"></span> In Progress <span class="column-count">1</span></span>
+            </div>
+            <div class="task-card" style="box-shadow:none;">
+              <span class="badge pr-urgent"><span class="badge-dot"></span> URGENT</span>
+              <h3 style="font-size:13px;">Authentication & Sockets</h3>
+              <div class="task-meta">
+                <span class="task-due due-soon">⏳ Due soon</span>
+                <span>💬 5</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="column" style="min-height:220px;">
+            <div class="column-header">
+              <span class="column-header-title"><span class="column-dot" style="background:#8b5cf6;"></span> In Review <span class="column-count">1</span></span>
+            </div>
+            <div class="task-card" style="box-shadow:none;">
+              <span class="badge pr-medium"><span class="badge-dot"></span> MEDIUM</span>
+              <h3 style="font-size:13px;">Drag-and-Drop Kanban</h3>
+              <div class="task-meta">
+                <span style="font-size:11px;">📅 Oct 12</span>
+                <span>💬 2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="column" style="min-height:220px;">
+            <div class="column-header">
+              <span class="column-header-title"><span class="column-dot" style="background:#10b981;"></span> Completed <span class="column-count">2</span></span>
+            </div>
+            <div class="task-card" style="box-shadow:none;">
+              <span class="badge pr-low"><span class="badge-dot"></span> LOW</span>
+              <h3 style="font-size:13px;">Setup Database & APIs</h3>
+              <div class="task-meta">
+                <span class="badge st-completed">Done</span>
+                <span>💬 4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="background:var(--primary-soft); color:var(--primary);">
+          📊
+        </div>
+        <h3 style="margin:0 0 10px; font-size:18px;">Interactive Kanban Boards</h3>
+        <p class="muted" style="margin:0; font-size:14px; line-height:1.6;">
+          Drag and drop task cards effortlessly between workflow stages. Filter by priority, assignee, or keyword search with zero lag.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="background:var(--progress-bg); color:var(--progress);">
+          👥
+        </div>
+        <h3 style="margin:0 0 10px; font-size:18px;">Group Projects & Assignments</h3>
+        <p class="muted" style="margin:0; font-size:14px; line-height:1.6;">
+          Invite teammates with instant search. Assign tasks with custom due dates, priorities, and monitor overall project completion rate.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="background:var(--done-bg); color:var(--done);">
+          ⚡
+        </div>
+        <h3 style="margin:0 0 10px; font-size:18px;">Real-Time WebSockets & Comments</h3>
+        <p class="muted" style="margin:0; font-size:14px; line-height:1.6;">
+          Discuss work with threaded comments and @mentions. Changes made by teammates update instantly without refreshing the page.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid var(--border); padding:32px 20px; text-align:center; color:var(--text-muted); font-size:14px;">
+    &copy; 2026 Nexora Project Management. All rights reserved.
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    if (window.PMT && window.PMT.getToken()) {
+      const loginBtn = document.getElementById('navLoginBtn');
+      const regBtn = document.getElementById('navRegisterBtn');
+      if (loginBtn) {
+        loginBtn.textContent = 'Go to Dashboard';
+        loginBtn.href = '/dashboard.html';
+      }
+      if (regBtn) {
+        regBtn.textContent = 'Open App';
+        regBtn.href = '/dashboard.html';
+      }
+    }
+  </script>
+</body>
+</html>
